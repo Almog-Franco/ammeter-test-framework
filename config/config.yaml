@@ -1,0 +1,60 @@
+testing:
+  sampling:
+    # set any two of these, the third follows from count = duration * frequency
+    measurements_count: 50
+    total_duration_seconds: NULL
+    sampling_frequency_hz: 10
+  profiles:
+    smoke:
+      measurements_count: 10
+      sampling_frequency_hz: 20
+    soak:
+      total_duration_seconds: 300
+      sampling_frequency_hz: 5
+  timeout_seconds: 2.0
+  retries: 1
+  max_consecutive_errors: 5
+  start_emulators: true
+  emulator_seed: NULL   # a number makes the emulators' readings repeatable
+  acceptance:
+    max_error_rate: 0.05
+    max_frequency_error: 0.1   # share of planned readings that may be missed
+    stuck_after: 3             # this many identical readings in a row means a stuck sensor
+    max_model_z: 5.0           # see docs/DESIGN.md for how these two limits were chosen
+    max_drift_t: 5.0
+
+ammeters:
+  # 5000 is avoided because macOS uses it for AirPlay Receiver.
+  # expected: what each emulator's physics predicts, from the input ranges in the README (see docs/DESIGN.md)
+  greenlee:
+    port: 5001
+    command: "MEASURE_GREENLEE -get_measurement"
+    expected: {min: 0.01, max: 100.0, mean: 0.3803, geo_mean: 0.1283, log_std: 1.139}
+  entes:
+    port: 5002
+    command: "MEASURE_ENTES -get_data"
+    expected: {min: 5.0, max: 200.0, mean: 68.75, geo_mean: 55.51, log_std: 0.7012}
+  circutor:
+    port: 5003
+    command: "MEASURE_CIRCUTOR -get_measurement -current"
+    expected: {min: 0.001, max: 0.1, mean: 0.03025, geo_mean: 0.02583, log_std: 0.6073}
+
+analysis:
+  statistical_metrics: [mean, median, std_dev, min, max, cv, geo_mean, ci95, outliers]
+  min_readings_to_rank: 30
+  visualization:
+    enabled: true
+    plot_types: [timeseries, histogram, comparison]
+
+result_management:
+  results_dir: results
+
+fault_injection:
+  enabled: false
+  seed: 7
+  rates:
+    timeout: 0.02
+    no_response: 0.04
+    garbage: 0.04
+    spike: 0.04
+    stuck: 0.02

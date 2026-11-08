@@ -1,0 +1,5 @@
+2026-10-26 18:30:35,301 INFO    circutor at 127.0.0.1:5003: 50 readings at 10 Hz
+2026-10-26 18:30:41,808 WARNING reading 0 failed: AmmeterResponseError: empty response (unknown command, or the ammeter closed the connection)
+2026-10-26 18:30:41,808 WARNING reading 13 failed: AmmeterTimeoutError: no complete answer from 127.0.0.1:5003 within 2 s
+2026-10-26 18:30:41,808 WARNING reading 45 failed: AmmeterTimeoutError: no complete answer from 127.0.0.1:5003 within 2 s
+2026-10-26 18:30:41,913 INFO    finished with status FAIL

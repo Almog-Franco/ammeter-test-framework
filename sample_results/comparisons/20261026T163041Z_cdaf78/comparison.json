@@ -1,0 +1,57 @@
+{
+  "rows": [],
+  "not_ranked": [
+    {
+      "ammeter": "greenlee",
+      "run_id": "20261026T163023Z_greenlee_488380",
+      "status": "FAIL",
+      "count": 38,
+      "mean": 852.4778774977461,
+      "median": 0.12380049212617429,
+      "cv": 6.157299345376795,
+      "cv_ci95": [
+        1.559092728331206,
+        6.162795491602983
+      ],
+      "bias": 0.7186391217319101,
+      "error_rate": 0.15555555555555556,
+      "reason": "status FAIL"
+    },
+    {
+      "ammeter": "entes",
+      "run_id": "20261026T163029Z_entes_754b94",
+      "status": "FAIL",
+      "count": 31,
+      "mean": 4906804.246485151,
+      "median": 58.124883546812086,
+      "cv": 3.892780259650974,
+      "cv_ci95": [
+        0.5972225775074735,
+        5.567650444411439
+      ],
+      "bias": 1.208585539675303,
+      "error_rate": 0.03125,
+      "reason": "status FAIL"
+    },
+    {
+      "ammeter": "circutor",
+      "run_id": "20261026T163035Z_circutor_3eecbe",
+      "status": "FAIL",
+      "count": 15,
+      "mean": 0.023271982034533272,
+      "median": 0.02001372146632174,
+      "cv": 0.6341648127578715,
+      "cv_ci95": [
+        0.3845208307211142,
+        0.7635369603756077
+      ],
+      "bias": -0.24227950503188245,
+      "error_rate": 0.16666666666666666,
+      "reason": "status FAIL"
+    }
+  ],
+  "min_readings": 30,
+  "most_reliable": null,
+  "tied": [],
+  "conclusion": "insufficient evidence: fewer than two runs passed every check with at least 30 readings"
+}

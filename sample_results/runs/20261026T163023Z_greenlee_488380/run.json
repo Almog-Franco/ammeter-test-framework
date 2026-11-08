@@ -1,0 +1,316 @@
+{
+  "run_id": "20261026T163023Z_greenlee_488380",
+  "status": "FAIL",
+  "ammeter": {
+    "name": "greenlee",
+    "port": 5001,
+    "command": "MEASURE_GREENLEE -get_measurement",
+    "host": "127.0.0.1",
+    "emulator": "greenlee",
+    "expected_min": 0.01,
+    "expected_max": 100.0,
+    "expected_mean": 0.3803,
+    "expected_geo_mean": 0.1283,
+    "expected_log_std": 1.139
+  },
+  "sampling": {
+    "measurements_count": 50,
+    "sampling_frequency_hz": 10.0,
+    "total_duration_seconds": 5.0
+  },
+  "started_at": "2026-10-26T16:30:23.060+00:00",
+  "finished_at": "2026-10-26T16:30:29.463+00:00",
+  "stop_reason": null,
+  "missed": 5,
+  "statistics": {
+    "count": 38,
+    "mean": 852.4778774977461,
+    "median": 0.12380049212617429,
+    "std_dev": 5248.961477065071,
+    "min": 0.019773024255617836,
+    "max": 32357.745925350115,
+    "cv": 6.157299345376795,
+    "cv_ci95": [
+      1.559092728331206,
+      6.162795491602983
+    ],
+    "geo_mean": 0.22050139931820406,
+    "ci95": [
+      0.23324510980571503,
+      2555.662850450953
+    ],
+    "q1": 0.07379219752603368,
+    "q3": 0.2547821672983133,
+    "outliers": 6
+  },
+  "error_count": 7,
+  "error_rate": 0.15555555555555556,
+  "errors": {
+    "AmmeterResponseError": 6,
+    "AmmeterTimeoutError": 1
+  },
+  "out_of_range_rate": 0.02631578947368421,
+  "consistency": {
+    "planned": 50,
+    "taken": 45,
+    "requested_hz": 10.0,
+    "achieved_hz": 9.0,
+    "interval_jitter_ms": 2.170172327484311,
+    "max_lag_ms": 5.039375042542815,
+    "latency_mean_ms": 45.2764165484243,
+    "latency_p95_ms": 1.0060840286314487,
+    "latency_max_ms": 2001.2587499804795,
+    "drift_pct": -340.7750722496534,
+    "drift_t": -1.028462618894949,
+    "drift_exact": false
+  },
+  "checks": [
+    {
+      "name": "values_in_range",
+      "passed": false,
+      "skipped": false,
+      "detail": "1 of 38 outside [0.01, 100] A"
+    },
+    {
+      "name": "error_rate",
+      "passed": false,
+      "skipped": false,
+      "detail": "15.6% failed (limit 5%)"
+    },
+    {
+      "name": "sampling_rate",
+      "passed": true,
+      "skipped": false,
+      "detail": "45 of 50 planned readings taken, 9 Hz for 10 Hz requested (10.0% short, limit 10%)"
+    },
+    {
+      "name": "not_stuck",
+      "passed": true,
+      "skipped": false,
+      "detail": "longest run of identical readings: 1 (stuck from 3)"
+    },
+    {
+      "name": "matches_model",
+      "passed": true,
+      "skipped": false,
+      "detail": "geometric mean 0.2205 A, model 0.1283 A (z = +2.93, limit \u00b15)"
+    },
+    {
+      "name": "no_drift",
+      "passed": true,
+      "skipped": false,
+      "detail": "-341 % over the run (t = -1.03, limit \u00b15)"
+    }
+  ],
+  "fault_injection": {
+    "rates": {
+      "timeout": 0.02,
+      "no_response": 0.04,
+      "garbage": 0.04,
+      "spike": 0.04,
+      "stuck": 0.02
+    },
+    "seed": 7,
+    "delay_s": 3.0
+  },
+  "settings": {
+    "ammeters": {
+      "greenlee": {
+        "name": "greenlee",
+        "port": 5001,
+        "command": "MEASURE_GREENLEE -get_measurement",
+        "host": "127.0.0.1",
+        "emulator": "greenlee",
+        "expected_min": 0.01,
+        "expected_max": 100.0,
+        "expected_mean": 0.3803,
+        "expected_geo_mean": 0.1283,
+        "expected_log_std": 1.139
+      },
+      "entes": {
+        "name": "entes",
+        "port": 5002,
+        "command": "MEASURE_ENTES -get_data",
+        "host": "127.0.0.1",
+        "emulator": "entes",
+        "expected_min": 5.0,
+        "expected_max": 200.0,
+        "expected_mean": 68.75,
+        "expected_geo_mean": 55.51,
+        "expected_log_std": 0.7012
+      },
+      "circutor": {
+        "name": "circutor",
+        "port": 5003,
+        "command": "MEASURE_CIRCUTOR -get_measurement -current",
+        "host": "127.0.0.1",
+        "emulator": "circutor",
+        "expected_min": 0.001,
+        "expected_max": 0.1,
+        "expected_mean": 0.03025,
+        "expected_geo_mean": 0.02583,
+        "expected_log_std": 0.6073
+      }
+    },
+    "sampling": {
+      "measurements_count": 50,
+      "sampling_frequency_hz": 10.0,
+      "total_duration_seconds": 5.0
+    },
+    "acceptance": {
+      "max_error_rate": 0.05,
+      "max_frequency_error": 0.1,
+      "stuck_after": 3,
+      "max_model_z": 5.0,
+      "max_drift_t": 5.0
+    },
+    "timeout_s": 2.0,
+    "retries": 1,
+    "max_consecutive_errors": 5,
+    "start_emulators": true,
+    "emulator_seed": 1,
+    "metrics": [
+      "mean",
+      "median",
+      "std_dev",
+      "min",
+      "max",
+      "cv",
+      "geo_mean",
+      "ci95",
+      "outliers"
+    ],
+    "min_readings_to_rank": 30,
+    "plots_enabled": true,
+    "plot_types": [
+      "timeseries",
+      "histogram",
+      "comparison"
+    ],
+    "results_dir": "/Users/almog/Downloads/General/Test_QA_expanded/sample_results",
+    "faults_enabled": true,
+    "fault_rates": {
+      "timeout": 0.02,
+      "no_response": 0.04,
+      "garbage": 0.04,
+      "spike": 0.04,
+      "stuck": 0.02
+    },
+    "fault_seed": 7,
+    "profile": null,
+    "config_path": "/Users/almog/Downloads/General/Test_QA_expanded/config/config.yaml",
+    "config_sha256": "d558363bc2d5083ad5675314258bb8e429c9e43545acc99b4d1376007cc49fb9"
+  },
+  "config": {
+    "path": "/Users/almog/Downloads/General/Test_QA_expanded/config/config.yaml",
+    "sha256": "d558363bc2d5083ad5675314258bb8e429c9e43545acc99b4d1376007cc49fb9",
+    "profile": null,
+    "content": {
+      "testing": {
+        "sampling": {
+          "measurements_count": 50,
+          "total_duration_seconds": null,
+          "sampling_frequency_hz": 10
+        },
+        "profiles": {
+          "smoke": {
+            "measurements_count": 10,
+            "sampling_frequency_hz": 20
+          },
+          "soak": {
+            "total_duration_seconds": 300,
+            "sampling_frequency_hz": 5
+          }
+        },
+        "timeout_seconds": 2.0,
+        "retries": 1,
+        "max_consecutive_errors": 5,
+        "start_emulators": true,
+        "emulator_seed": null,
+        "acceptance": {
+          "max_error_rate": 0.05,
+          "max_frequency_error": 0.1,
+          "stuck_after": 3,
+          "max_model_z": 5.0,
+          "max_drift_t": 5.0
+        }
+      },
+      "ammeters": {
+        "greenlee": {
+          "port": 5001,
+          "command": "MEASURE_GREENLEE -get_measurement",
+          "expected": {
+            "min": 0.01,
+            "max": 100.0,
+            "mean": 0.3803,
+            "geo_mean": 0.1283,
+            "log_std": 1.139
+          }
+        },
+        "entes": {
+          "port": 5002,
+          "command": "MEASURE_ENTES -get_data",
+          "expected": {
+            "min": 5.0,
+            "max": 200.0,
+            "mean": 68.75,
+            "geo_mean": 55.51,
+            "log_std": 0.7012
+          }
+        },
+        "circutor": {
+          "port": 5003,
+          "command": "MEASURE_CIRCUTOR -get_measurement -current",
+          "expected": {
+            "min": 0.001,
+            "max": 0.1,
+            "mean": 0.03025,
+            "geo_mean": 0.02583,
+            "log_std": 0.6073
+          }
+        }
+      },
+      "analysis": {
+        "statistical_metrics": [
+          "mean",
+          "median",
+          "std_dev",
+          "min",
+          "max",
+          "cv",
+          "geo_mean",
+          "ci95",
+          "outliers"
+        ],
+        "min_readings_to_rank": 30,
+        "visualization": {
+          "enabled": true,
+          "plot_types": [
+            "timeseries",
+            "histogram",
+            "comparison"
+          ]
+        }
+      },
+      "result_management": {
+        "results_dir": "results"
+      },
+      "fault_injection": {
+        "enabled": false,
+        "seed": 7,
+        "rates": {
+          "timeout": 0.02,
+          "no_response": 0.04,
+          "garbage": 0.04,
+          "spike": 0.04,
+          "stuck": 0.02
+        }
+      }
+    }
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "log_file": "/Users/almog/Downloads/General/Test_QA_expanded/sample_results/logs/20261026_183023_greenlee_488380.log"
+}

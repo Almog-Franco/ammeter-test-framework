@@ -1,0 +1,9 @@
+2026-10-26 18:30:23,059 INFO    greenlee at 127.0.0.1:5001: 50 readings at 10 Hz
+2026-10-26 18:30:29,463 WARNING reading 11 failed: AmmeterResponseError: not a number: 'ERR#42'
+2026-10-26 18:30:29,463 WARNING reading 12 failed: AmmeterResponseError: empty response (unknown command, or the ammeter closed the connection)
+2026-10-26 18:30:29,463 WARNING reading 16 failed: AmmeterResponseError: not a number: 'ERR#42'
+2026-10-26 18:30:29,463 WARNING reading 25 failed: AmmeterResponseError: empty response (unknown command, or the ammeter closed the connection)
+2026-10-26 18:30:29,463 WARNING reading 33 failed: AmmeterResponseError: not a number: 'ERR#42'
+2026-10-26 18:30:29,463 WARNING reading 40 failed: AmmeterResponseError: empty response (unknown command, or the ammeter closed the connection)
+2026-10-26 18:30:29,463 WARNING reading 44 failed: AmmeterTimeoutError: no complete answer from 127.0.0.1:5001 within 2 s
+2026-10-26 18:30:29,965 INFO    finished with status FAIL
